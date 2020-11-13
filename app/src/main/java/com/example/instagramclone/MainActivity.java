@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCaptureImage;
     private File photoFile;
     public String photoFileName = "photo.jpg";
+    private ImageButton ibUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
+        ibUser = findViewById(R.id.ibUser);
+
+        ibUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                Toast.makeText(MainActivity.this, "Logged out!", Toast.LENGTH_SHORT).show();
+                goLoginActivity();
+            }
+        });
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
                 savePost(description, currentUser, photoFile);
             }
         });
+    }
+
+    private void goLoginActivity() {
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void launchCamera() {

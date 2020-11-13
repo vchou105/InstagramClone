@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="16dp"
     tools:context=".MainActivity"
     android:orientation="vertical">
@@ -33,4 +33,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"/>
+
+
+    <ImageButton
+        android:id="@+id/ibUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        app:srcCompat="@drawable/user_icon" />
+<!--
+    <ImageButton
+        android:id="@+id/ibUserIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/instagram_user_outline_24" /> !-->
 </LinearLayout>
+
+<!--
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="16dp"
+tools:context=".MainActivity">
+
+</RelativeLayout> !-->
